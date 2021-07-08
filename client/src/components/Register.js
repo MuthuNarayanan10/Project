@@ -19,7 +19,7 @@ const CheckBox = (props) => (
             MobileNo: '',
             email: '',
             message: '',
-
+            disableButton:false,
             sent: false,
             sendingEmail: false,
 
@@ -111,11 +111,14 @@ const CheckBox = (props) => (
             courses: this.state.selectedCourses,
 
         }
-
+        this.setState({
+            disableButton: true
+        })
         axios.post(`${ip}/api/form`, data)
             .then(res => {
                 this.setState({
                     sent: true,
+                    disableButton: false
                 }, this.resetForm())
             }).catch(() => {
                 console.log("not sent")
@@ -187,7 +190,7 @@ const CheckBox = (props) => (
                         <label htmlFor="additionalMessage" >Additional Message</label>
                         <textarea type="text" name="message" className="form-control custom-form-control" value={this.state.message} onChange={this.handleMessage} rows="6" placeholder="Hi, I am interested in learning ..."  ></textarea>
                     </div>
-                    <button type="submit" className="custom-btn black d-block sub">SUBMIT</button>
+                    <button disabled={this.disableButton} type="submit" className="custom-btn black d-block sub">SUBMIT</button>
                 </form>
             </div>
         );

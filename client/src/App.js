@@ -28,8 +28,8 @@ function App() {
                 <Route path="/xr-learning" component={XRLearning} />
                 <Route path="/events" component={Events} />
                 <Route path="/contacts" component={ContactUs} />
-                <Route path="/Thanks" component={Thanks} />
-                <Route path='/Confirm/:id' component={Confirm} />
+                <Route path="/Thanks/:id" component={Thanks} />
+                <Route path='/Confirm' component={Confirm} />
             </Switch>
         </BrowserRouter>
     </div>
