@@ -26,8 +26,8 @@ app.post('/api/form', (req, res) => {
         service: 'Gmail',
         port: '465',
         auth: {
-            user: "develearn.campaigns@gmail.com",//user email
-            pass: "badprogramming" //user email password
+            user: "yourmail@gmail.com",//user email
+            pass: "password" //user email password
         }
 
 
@@ -35,7 +35,7 @@ app.post('/api/form', (req, res) => {
 
     let mailOptions = {
         from: data.mail,
-        to: "develearn.campaigns@gmail.com",//user email
+        to: "yourmail@gmail.com",//user email
         subject: `Develearn Course Enquiry from ${data.name}`,
         html: `
         <h3>information</h3>
